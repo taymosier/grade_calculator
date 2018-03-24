@@ -1,13 +1,13 @@
 export function validateCourses(courseList){
-  let validNumber, validGrade, validGradePoints;
+  let validNumber, validGrade, validCreditHours;
     for(let x in courseList.courses){
       validNumber = ValidateCourseNumber(courseList.courses[x].classNumber);
       validGrade = ValidateCourseGrade(courseList.courses[x].classGrade);
-      validGradePoints = ValidateCourseGradePoints(courseList.courses[x].classGradePoints);
-      if(!validNumber || !validGrade || !validGradePoints){
+      validCreditHours = ValidateCourseCreditHours(courseList.courses[x].classCreditHours);
+      if(!validNumber || !validGrade || !validCreditHours){
         console.log(`validNumber: ${validNumber}`);
         console.log(`validGrade: ${validGrade}`);
-        console.log(`validGradePoints: ${validGradePoints}`);
+        console.log(`validCreditHours: ${validCreditHours}`);
         return false;
       }
     }
@@ -16,7 +16,7 @@ export function validateCourses(courseList){
 
 export function ValidateCourseNumber(courseNumber){
   // console.log('ValidateCourseNumber called');
-  var specialCharacters = /\^+|\$+|\.+|\++|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
+  var specialCharacters = /\^+|\$+|\.+|\++|\?+|=+|!+|:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
   // console.log(courseNumber.toString().match(specialCharacters));
   let invalidCharacters = courseNumber.toString().match(specialCharacters);
   if(invalidCharacters != null && courseNumber.length > 0){
@@ -27,7 +27,7 @@ export function ValidateCourseNumber(courseNumber){
 
 export function ValidateCourseGrade(courseGrade){
   // console.log('ValidateCourseNumber called');
-  var specialCharacters = /\^+|\$+|\.+|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
+  var specialCharacters = /\^+|\$+|\.+|\?+|=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
   // console.log(courseGrade.toString().match(specialCharacters));
   let invalidCharacters = courseGrade.toString().match(specialCharacters);
   if(invalidCharacters != null && courseGrade.length > 0){
@@ -36,11 +36,11 @@ export function ValidateCourseGrade(courseGrade){
   return true;
 }
 
-export function ValidateCourseGradePoints(courseGradePoints){
+export function ValidateCourseCreditHours(courseCreditHours){
   // console.log('ValidateCourseNumber called');
   // var specialCharacters = /\^+|\$+|\.+|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
-  // // console.log(courseGradePoints.toString().match(specialCharacters));
-  // let invalidCharacters = courseGradePoints.toString().match(specialCharacters);
+  // // console.log(courseCreditHours.toString().match(specialCharacters));
+  // let invalidCharacters = courseCreditHours.toString().match(specialCharacters);
   // if(invalidCharacters != null){
   //   return false;
   // }

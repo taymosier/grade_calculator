@@ -12,7 +12,7 @@ export let dummycourses = [
   { id: 1,
   classNumber: '',
   classGrade: '',
-  classGradePoints: '',
+  classCreditHours: '',
   },
 ]
 
@@ -20,17 +20,17 @@ export let courses = [
   { id: 1,
   classNumber: 'CSC3200',
   classGrade: 98,
-  classGradePoints: 4,
+  classCreditHours: 4,
   },
   { id: 2,
   classNumber: 'FTM282',
   classGrade: 85,
-  classGradePoints: 3,
+  classCreditHours: 3,
   },
   { id: 3,
   classNumber: 'FTM460',
   classGrade: 88,
-  classGradePoints: 3.3,
+  classCreditHours: 3,
   },
 ]
 
@@ -38,7 +38,7 @@ let course = {
   id: '',
   classNumber: '',
   classGrade: '',
-  classGradePoints: '',
+  classCreditHours: '',
 };
 
 export class ClassList extends Component {
@@ -48,6 +48,7 @@ export class ClassList extends Component {
     this.state = {
       courses: courses,
       validSubmission: false,
+      calculatedGPA: '',
     }
     this.addCourse = this.addCourse.bind(this);
     this.submitCourses = this.submitCourses.bind(this);
@@ -65,6 +66,9 @@ export class ClassList extends Component {
   submitCourses(){
     console.log(validateCourses(this.state));
     if(validateCourses(this.state) === true){
+      this.setState({
+        calculatedGPA: calculateGrades(this.state)
+      })
       calculateGrades(this.state);
     } else {
       console.log(`invalid courses`);

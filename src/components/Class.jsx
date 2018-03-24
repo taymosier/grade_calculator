@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Button, Col, Form, Glyphicon, Row } from 'react-bootstrap';
 import { ClassNumber } from './ClassNumber.jsx';
 import { ClassGrade } from './ClassGrade.jsx';
-import { ClassGradePoints } from './ClassGradePoints.jsx';
+import { ClassCreditHours } from './ClassCreditHours.jsx';
 import { DeleteClassButton } from './DeleteClassButton.jsx';
 import {AddClassButton } from '../AddClassButton.jsx';
 import { courses } from './ClassList.jsx';
@@ -15,7 +15,7 @@ export class Class extends Component {
       id: this.props.id,
       classNumber : '',
       classGrade: '',
-      classGradePoints: '',
+      classCreditHours: '',
     };
     this.updateClassInput = this.updateClassInput.bind(this);
   }
@@ -34,11 +34,11 @@ export class Class extends Component {
         classGrade: value,
       });
       courses[(courseID)].classGrade = value;
-    } else if (inputID === 'courseGradePointsInput'){
+    } else if (inputID === 'courseCreditHoursInput'){
       this.setState({
-        classGradePoints: value,
+        classCreditHours: value,
       });
-      courses[(courseID)].classGradePoints = value;
+      courses[(courseID)].classCreditHours = value;
     }
   }
 
@@ -55,7 +55,7 @@ export class Class extends Component {
       <Form inline >
         <ClassNumber updateClassInput={this.updateClassInput}/>
         <ClassGrade updateClassInput={this.updateClassInput} />{' '}
-        <ClassGradePoints updateClassInput={this.updateClassInput}/>{' '}
+        <ClassCreditHours updateClassInput={this.updateClassInput}/>{' '}
       </Form>
     );
   }

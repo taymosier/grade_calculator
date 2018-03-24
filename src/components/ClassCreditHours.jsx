@@ -3,7 +3,7 @@ import {Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap';
 import { width } from '../helpers.js';
 
 
-export class ClassGradePoints extends Component {
+export class ClassCreditHours extends Component {
   constructor(props){
     super(props);
     this.state={
@@ -30,7 +30,7 @@ export class ClassGradePoints extends Component {
   }
 
   render(){
-    let classGradePointsWithPlaceholder = <Col xs={8} xsOffset={0} className="classGradePointsComponent">
+    let classCreditHoursWithPlaceholder = <Col xs={8} xsOffset={0} className="classCreditHoursComponent">
       <FormGroup
         controlId="classGradePointInput"
         validationState={this.getValidationState()}
@@ -38,7 +38,7 @@ export class ClassGradePoints extends Component {
         <FormControl
           placeholder="Grade Points"
           type="number"
-          id="courseGradePointsInput"
+          id="courseCreditHoursInput"
 
           value={this.state.value}
           onChange={this.handleGradePointChange}
@@ -46,15 +46,15 @@ export class ClassGradePoints extends Component {
       <FormControl.Feedback />
       </FormGroup>
     </Col>
-    let classGradePoints = <Col lg={2}  className="classGradePointsComponent">
+    let classCreditHours = <Col lg={2}  className="classCreditHoursComponent">
       <FormGroup
         controlId="classGradePointInput"
         validationState={this.getValidationState()}
       >
-        <ControlLabel>Grade Points</ControlLabel>{' '}
+        <ControlLabel>Credit Hours</ControlLabel>{' '}
         <FormControl
           type="number"
-          id="courseGradePointsInput"
+          id="courseCreditHoursInput"
           value={this.state.value}
           onChange={this.handleGradePointChange}
         />
@@ -62,9 +62,9 @@ export class ClassGradePoints extends Component {
       </FormGroup>
     </Col>
     if(width<575){
-      return(classGradePointsWithPlaceholder);
+      return(classCreditHoursWithPlaceholder);
     } else {
-      return(classGradePoints);
+      return(classCreditHours);
     }
   }
 }
