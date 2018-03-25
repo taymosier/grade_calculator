@@ -29,13 +29,14 @@ export class ClassNumber extends Component {
   }
 
   render(){
-    let classNumberWithPlaceholder = <Col xs={8} xsOffset={0} className="classNumberComponent">
+    let classNumberWithPlaceholder = <Col xs={10} xsOffset={0} className="classNumberComponent">
                                       <FormGroup
                                           className="classInput"
                                           validationState={this.getValidationState()}
                                       >{' '}
                                           <FormControl
                                             type="text"
+                                            bsSize="sm"
                                             id="courseNumberInput"
                                             placeholder="Class Number"
                                             value={this.state.value}
@@ -52,6 +53,7 @@ export class ClassNumber extends Component {
                             <ControlLabel>Class Number</ControlLabel>{' '}
                             <FormControl
                               type="text"
+                              bsSize="sm"
                               id="courseNumberInput"
                               value={this.state.value}
                               onChange={this.handleChange}

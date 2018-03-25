@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Col, Grid, Row } from 'react-bootstrap';
+import { Grid, Row } from 'react-bootstrap';
 import { ClassList } from './components/ClassList.jsx';
-import { AddClassButton } from './AddClassButton.jsx';
 import './App.css';
 
 

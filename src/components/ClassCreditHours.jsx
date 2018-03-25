@@ -30,16 +30,16 @@ export class ClassCreditHours extends Component {
   }
 
   render(){
-    let classCreditHoursWithPlaceholder = <Col xs={8} xsOffset={0} className="classCreditHoursComponent">
+    let classCreditHoursWithPlaceholder = <Col xs={10} xsOffset={0} className="classCreditHoursComponent">
       <FormGroup
         controlId="classGradePointInput"
         validationState={this.getValidationState()}
       >
         <FormControl
-          placeholder="Grade Points"
+          placeholder="Credit Hours"
           type="number"
           id="courseCreditHoursInput"
-
+          bsSize="sm"
           value={this.state.value}
           onChange={this.handleGradePointChange}
         />
@@ -53,8 +53,11 @@ export class ClassCreditHours extends Component {
       >
         <ControlLabel>Credit Hours</ControlLabel>{' '}
         <FormControl
+          bsSize="sm"
           type="number"
           id="courseCreditHoursInput"
+          min="1"
+          max="4"
           value={this.state.value}
           onChange={this.handleGradePointChange}
         />

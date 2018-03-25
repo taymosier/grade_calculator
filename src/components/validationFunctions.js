@@ -27,7 +27,7 @@ export function ValidateCourseNumber(courseNumber){
 
 export function ValidateCourseGrade(courseGrade){
   // console.log('ValidateCourseNumber called');
-  var specialCharacters = /\^+|\$+|\.+|\?+|=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
+  var specialCharacters = /\^+|\$+|\.+|\?+|=+!+:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
   // console.log(courseGrade.toString().match(specialCharacters));
   let invalidCharacters = courseGrade.toString().match(specialCharacters);
   if(invalidCharacters != null && courseGrade.length > 0){

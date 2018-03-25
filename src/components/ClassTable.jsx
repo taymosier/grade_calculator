@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import { Class } from './Class';
-
+import '.././index.css';
 
 export class ClassTable extends Component{
   constructor(props){

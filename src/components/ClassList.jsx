@@ -3,12 +3,12 @@ import {Col} from 'react-bootstrap';
 import { AddClassButton } from './AddClassButton.jsx';
 import { SubmitCoursesButton } from '../SubmitCoursesButton.jsx';
 import { ClassTable } from './ClassTable.jsx';
-import { courseGradeEquivalents } from './courseGradeEquivalents.js';
+import { CalculatedGrade } from './CalculatedGrade.jsx';
 import { calculateGrades } from './calculationFunctions.js';
 import { validateCourses } from './validationFunctions.js';
+import { width } from './../helpers.js';
 
-
-export let dummycourses = [
+export let courses = [
   { id: 1,
   classNumber: '',
   classGrade: '',
@@ -16,7 +16,7 @@ export let dummycourses = [
   },
 ]
 
-export let courses = [
+export let dummycourses = [
   { id: 1,
   classNumber: 'CSC3200',
   classGrade: 98,
@@ -49,9 +49,11 @@ export class ClassList extends Component {
       courses: courses,
       validSubmission: false,
       calculatedGPA: '',
+      showResults: true,
     }
     this.addCourse = this.addCourse.bind(this);
     this.submitCourses = this.submitCourses.bind(this);
+    this.hideResults = this.hideResults.bind(this);
   }
 
   addCourse(){
@@ -63,13 +65,21 @@ export class ClassList extends Component {
     console.log(courses);
   }
 
+  hideResults(){
+    this.setState({
+      showResults: false
+    });
+  }
+
   submitCourses(){
-    console.log(validateCourses(this.state));
-    if(validateCourses(this.state) === true){
+    let submittedCourses = this.state;
+    console.log(validateCourses(submittedCourses));
+    if(validateCourses(submittedCourses) === true){
       this.setState({
-        calculatedGPA: calculateGrades(this.state)
+        calculatedGPA: calculateGrades(submittedCourses),
+        showResults: true,
       })
-      calculateGrades(this.state);
+      calculateGrades(submittedCourses);
     } else {
       console.log(`invalid courses`);
     }
@@ -81,6 +91,10 @@ export class ClassList extends Component {
         <ClassTable courses={this.state.courses} updateClass={this.updateClass}/>
         <AddClassButton className="AddClassButton" onClick={this.addCourse}/>{' '}
         <SubmitCoursesButton onClick={this.submitCourses}/>
+        {this.state.calculatedGPA.length > 0
+          ? <CalculatedGrade show={this.state.showResults} calculatedGPA={this.state.calculatedGPA} hideResults={this.hideResults}/>
+          : null
+        }
       </Col>
     );
   }

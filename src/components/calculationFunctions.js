@@ -1,7 +1,7 @@
 import { courseGradeEquivalents } from './courseGradeEquivalents.js';
 
 export function calculateGrades(courseList){
-  let equivalentGradePoints,gradeCreditHours, gradePercent, gradeLetterEquivalent, letterGradeRange;
+  let equivalentGradePoints,gradeCreditHours, gradePercent, letterGradeRange;
   let letterGrades = [];
   for(let x in courseList.courses){
     gradePercent = convertGradeToPercent(courseList.courses[x].classGrade);
@@ -10,7 +10,6 @@ export function calculateGrades(courseList){
     for(let i in courseGradeEquivalents){
       letterGradeRange = courseGradeEquivalents[i].percentageRange;
       if(gradePercent >= letterGradeRange[0] && gradePercent <= letterGradeRange[1]){
-        gradeLetterEquivalent = courseGradeEquivalents[i].letter;
         equivalentGradePoints = courseGradeEquivalents[i].gradePoint;
       }
     }
@@ -20,7 +19,7 @@ export function calculateGrades(courseList){
   return calculateTermGPA(letterGrades);
 }
 
-function convertGradeToPercent(grade){
+export function convertGradeToPercent(grade){
   grade = parseInt(grade)/100;
   return grade;
 }

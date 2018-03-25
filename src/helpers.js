@@ -1,5 +1,7 @@
 export function getScreenWidth(){
-  return document.getElementsByTagName('body')[0].clientWidth;
+  let screenWidth = document.getElementsByTagName('body')[0].clientWidth;
+  console.log(screenWidth);
+  return screenWidth;
 }
 
 export let width = getScreenWidth();

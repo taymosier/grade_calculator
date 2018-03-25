@@ -16,26 +16,46 @@ body {
   float: left;
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
 @media only screen and (max-width: 575px){
-  .classNumberComponent {
+  .classCreditHoursComponent{
     float: left;
+    padding: 0;
+  }
+
+  .classNumberComponent {
+    padding: 0;
+    float: left;
+  }
+
+  .classSummaryCol {
+    padding-left: 0;
+  }
+
+  .classSummaryPanel{
+    margin-top: 10px;
+    font-size: 11px;
+    font-family: "Segoe UI", sans-serif;
   }
 
   .classGradeComponent{
     float: left;
-  }
-
-  .classGradePointsComponent{
-    float: left;
+    padding: 0;
   }
 
   .classForm{
     float: left;
     height: 125px;
     padding: 2vh 0 0 0;
-    background: grey;
-    border: 1px solid black;
-    border-radius: 7.5%;
+    background: #BF2115;
+    margin-top: 10px;
+    border: 1.5px solid #F8665B;
+    box-shadow: 2px 5px 10px #E34234;
   }
 
   .courseContainer{
@@ -47,18 +67,69 @@ body {
     margin: 0;
     padding: 1px;
   }
+  .has-feedback .form-control{
+    padding-right: 2px;
+  }
+
+  .inputColumn {
+    padding-right: 3px;
+  }
+
+  .panel {
+  }
+
+  .panel-default > .panel-heading {
+    padding: 5px 0 2px 0;
+    background-color: #980E03;
+  }
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px){
+  .classSummaryCol{
+    padding: 0;
+  }
 
+  .classSummaryPanel{
+    margin-top: 0;
+    font-size: 8px;
+  }
+
+  .inputColumn {
+    overflow: hidden;
+    padding-right: 0 !important;
+  }
+
+  .inputForm .form-group{
+    margin-bottom: 5px;
+  }
+
+  .col-no-padding{
+    padding: 0;
+  }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px){
+  .classSummaryCol{
+    padding: 0;
+  }
 
+  .classSummaryPanel{
+    margin-top: 0;
+    font-size: 8px !important;
+  }
+
+  .inputForm .form-group{
+    margin-bottom: 5px;
+  }
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px){
-
+  .classSummaryPanel{
+    margin-top: 15px;
+  }
+  .inputForm .form-group{
+    margin-bottom: 5px !important;
+  }
 }
 
 @media only screen and (min-width: 1200px){

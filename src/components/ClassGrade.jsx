@@ -31,16 +31,18 @@ export class ClassGrade extends Component {
   }
 
   render(){
-    let classGradeWithPlaceholder = <Col xs={8} xsOffset={0} className="classGradeComponent">
+    let classGradeWithPlaceholder = <Col xs={10} xsOffset={0} className="classGradeComponent">
                                       <FormGroup
                                         controlId="classGradeInput"
                                         validationState={this.getValidationState()}
                                       >
                                         <FormControl
                                           type="data-char"
-                                          placeholder="Grade"
+                                          placeholder="Grade %"
                                           id="courseGradeInput"
-
+                                          min="0"
+                                          max="100"
+                                          bsSize="sm"
                                           value={this.state.value}
                                           onChange={this.handleGradeChange}
                                         />
@@ -52,9 +54,12 @@ export class ClassGrade extends Component {
                           controlId="classGradeInput"
                           validationState={this.getValidationState()}
                         >
-                          <ControlLabel>Grade</ControlLabel>{' '}
+                          <ControlLabel>Grade %</ControlLabel>{' '}
                           <FormControl
-                            type="data-char"
+                            type="number"
+                            bsSize="sm"
+                            min="0"
+                            max="100"
                             value={this.state.value}
                             onChange={this.handleGradeChange}
                             id="courseGradeInput"
