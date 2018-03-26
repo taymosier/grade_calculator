@@ -86,6 +86,7 @@ export class Class extends Component {
 
   getValidationState(){
     const length = this.state.value.length;
+    console.log(this.state.value.length);
     if (length === 0){
       return ('error');
     }
@@ -112,7 +113,7 @@ export class Class extends Component {
                   {`Letter Grade/Credit Points: `}
                 </Panel.Heading>
                 <Panel.Body>
-                  {`${letter}`} -{' '}
+                  {`${letter}`} {' <-> '}
                   {`${creditPoints}`}
                 </Panel.Body>
               </Panel>

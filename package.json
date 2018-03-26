@@ -1,6 +1,7 @@
 {
   "name": "grade_calc",
   "version": "0.1.0",
+  "homepage": "https://taymosier.github.io/grade_calculator/",
   "private": true,
   "dependencies": {
     "bootstrap": "3.3",

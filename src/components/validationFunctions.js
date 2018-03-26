@@ -38,11 +38,15 @@ export function ValidateCourseGrade(courseGrade){
 
 export function ValidateCourseCreditHours(courseCreditHours){
   // console.log('ValidateCourseNumber called');
-  // var specialCharacters = /\^+|\$+|\.+|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
+  var specialCharacters = /\^+|\$+|\.+|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
   // // console.log(courseCreditHours.toString().match(specialCharacters));
-  // let invalidCharacters = courseCreditHours.toString().match(specialCharacters);
-  // if(invalidCharacters != null){
-  //   return false;
-  // }
+  let invalidCharacters = courseCreditHours.toString().match(specialCharacters);
+  if(courseCreditHours.length === 0){
+    console.log('coursecredits empty');
+    return false;
+  }
+  if(invalidCharacters != null){
+    return false;
+  }
   return true;
 }
