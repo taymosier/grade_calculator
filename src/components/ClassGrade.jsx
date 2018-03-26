@@ -24,6 +24,13 @@ export class ClassGrade extends Component {
   }
 
   handleGradeChange(e){
+    let value = e.target.value;
+    if(e.target.value < 0 ){
+      e.target.value = 0;
+    }
+    if(value > 100){
+      e.target.value = 100;
+    }
     this.setState({
       value: e.target.value
     });
@@ -37,7 +44,7 @@ export class ClassGrade extends Component {
                                         validationState={this.getValidationState()}
                                       >
                                         <FormControl
-                                          type="data-char"
+                                          type="number"
                                           placeholder="Grade %"
                                           id="courseGradeInput"
                                           min="0"

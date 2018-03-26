@@ -6,12 +6,12 @@ import { ClassCreditHours } from './ClassCreditHours.jsx';
 import { courses } from './ClassList.jsx';
 import {convertGradeToPercent } from './calculationFunctions.js';
 import { courseGradeEquivalents } from './courseGradeEquivalents.js';
+import { DeleteClassButton } from './DeleteClassButton.jsx';
 import { width } from './../helpers.js';
 import '.././index.css';
 
 
 function getGradePoints(grade, hours){
-
   let gradePercent, points, range;
   let letterGrades = courseGradeEquivalents
   gradePercent = convertGradeToPercent(grade);
@@ -19,14 +19,11 @@ function getGradePoints(grade, hours){
     range = courseGradeEquivalents[i].percentageRange;
     if(gradePercent >= range[0] && gradePercent <= range[1] ){
       points = courseGradeEquivalents[i].gradePoint;
-      console.log(`Letter Grade: ${courseGradeEquivalents[i].letter}`);
     }
   }
-  console.log(`Points: ${points} - Hours: ${hours}`);
   if((points*hours) > 1){
     return (points*hours).toFixed(2);
   } else {
-    console.log('returning zero');
     return '';
   }
 }
@@ -37,13 +34,11 @@ function getLetterGradeByIndex(letterIndex){
 
 function getLetterGradeByNumberGrade(grade){
   let gradePercent = convertGradeToPercent(grade);
-  console.log(grade);
   let range, letterGrade;
   for(let i in courseGradeEquivalents){
     range = courseGradeEquivalents[i].percentageRange;
     if(gradePercent >= range[0] && gradePercent <= range[1] ){
       letterGrade = courseGradeEquivalents[i].letter;
-      console.log(`Letter Grade: ${courseGradeEquivalents[i].letter}`);
       return letterGrade;
     }
   }
@@ -60,10 +55,12 @@ export class Class extends Component {
       classCreditHours: '',
     };
     this.updateClassInput = this.updateClassInput.bind(this);
+    this.getCourseId = this.getCourseId.bind(this);
   }
 
   updateClassInput(e){
     let courseID = this.state.id-1;
+    console.log(`course ID ${courseID}`);
     let value = e.target.value;
     let inputID = e.target.id;
     if(inputID === 'courseNumberInput'){
@@ -81,6 +78,17 @@ export class Class extends Component {
         classCreditHours: value,
       });
       courses[(courseID)].classCreditHours = value;
+    }
+  }
+
+  getCourseId(){
+    let courseIndex = this.state.id-1;
+    let arrayFirstHalf = courses.slice(0,this.state.id);
+    console.log(`arrayFirstHalf before popping: ${arrayFirstHalf}`);
+    arrayFirstHalf.pop();
+    console.log();
+    for (let i in arrayFirstHalf){
+      console.log(`arrayFirstHalf[${i}] after popping: ${arrayFirstHalf[i].id}`);
     }
   }
 
@@ -106,14 +114,14 @@ export class Class extends Component {
             <ClassCreditHours updateClassInput={this.updateClassInput}/>{' '}
           </Form>
         </Col>
-        <Col lg={3} md={2} sm={2} xs={5} className="classSummaryCol col-no-padding">
+        <Col lg={3} md={2} sm={2} xs={3} className="classSummaryCol col-no-padding">
           {width <= 767
             ?  <Panel className="classSummaryPanel">
                 <Panel.Heading>
                   {`Letter Grade/Credit Points: `}
                 </Panel.Heading>
                 <Panel.Body>
-                  {`${letter}`} {' <-> '}
+                  {`${letter}`} {' | '}
                   {`${creditPoints}`}
                 </Panel.Body>
               </Panel>
@@ -133,7 +141,9 @@ export class Class extends Component {
             </Panel>
           }
         </Col>
-
+        <Col xs={1}>
+          <DeleteClassButton getCourseId={this.getCourseId}/>
+        </Col>
       </Row>
     );
   }

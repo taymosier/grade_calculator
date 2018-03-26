@@ -5,9 +5,10 @@ export class DeleteClassButton extends Component {
   constructor(props){
     super(props);
   }
+
   render(){
     return(
-      <Button>
+      <Button bsSize="xs" onClick={this.props.getCourseId}>
         <Glyphicon glyph="remove"/>
       </Button>
     );

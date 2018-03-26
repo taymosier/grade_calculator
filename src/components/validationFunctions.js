@@ -37,6 +37,9 @@ export function ValidateCourseGrade(courseGrade){
 }
 
 export function ValidateCourseCreditHours(courseCreditHours){
+  if(courseCreditHours < 1 || courseCreditHours > 4){
+    return false;
+  }
   // console.log('ValidateCourseNumber called');
   var specialCharacters = /\^+|\$+|\.+|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
   // // console.log(courseCreditHours.toString().match(specialCharacters));

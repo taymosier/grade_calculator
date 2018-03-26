@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {Col} from 'react-bootstrap';
 import { AddClassButton } from './AddClassButton.jsx';
+import { HelpButton } from '../HelpButton.jsx';
+import { HelpModal } from '../HelpModal.jsx';
 import { SubmitCoursesButton } from '../SubmitCoursesButton.jsx';
 import { ClassTable } from './ClassTable.jsx';
 import { CalculatedGrade } from './CalculatedGrade.jsx';
@@ -49,11 +51,13 @@ export class ClassList extends Component {
       courses: courses,
       validSubmission: false,
       calculatedGPA: '',
+      showHelp: '',
       showResults: true,
     }
     this.addCourse = this.addCourse.bind(this);
     this.submitCourses = this.submitCourses.bind(this);
     this.hideResults = this.hideResults.bind(this);
+    this.toggleHelp = this.toggleHelp.bind(this);
   }
 
   addCourse(){
@@ -65,10 +69,26 @@ export class ClassList extends Component {
     console.log(courses);
   }
 
+  toggleHelp(){
+    if(this.state.showHelp){
+      this.setState({
+        showHelp: false,
+      });
+    } else {
+      this.setState({
+        showHelp: true,
+      });
+    }
+  }
+
   hideResults(){
     this.setState({
       showResults: false
     });
+  }
+
+  getCourseId(){
+    return null
   }
 
   submitCourses(){
@@ -86,15 +106,22 @@ export class ClassList extends Component {
   }
 
   render(){
+    let showHelp = this.state.showHelp;
     return(
       <Col className="courseContainer" lg={10} xs={10} xsOffset={1} lgOffset={1}>
         <ClassTable courses={this.state.courses} updateClass={this.updateClass}/>
+        <HelpButton toggleHelp={this.toggleHelp}/>{' '}
         <AddClassButton className="AddClassButton" onClick={this.addCourse}/>{' '}
         <SubmitCoursesButton onClick={this.submitCourses}/>
         {this.state.calculatedGPA.length > 0
           ? <CalculatedGrade show={this.state.showResults} calculatedGPA={this.state.calculatedGPA} hideResults={this.hideResults}/>
           : null
         }
+        {this.state.showHelp
+          ? <HelpModal show={true} toggleHelp={this.toggleHelp}/>
+          : null
+        }
+
       </Col>
     );
   }

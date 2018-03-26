@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Modal } from 'react-bootstrap';
+import '.././index.css';
 
 export class CalculatedGrade extends Component {
   constructor(props){
@@ -19,8 +20,6 @@ export class CalculatedGrade extends Component {
   }
 
 
-
-
   render(){
     let visible = this.state.show;
     if (this.state.show !== this.props.show){
@@ -34,15 +33,14 @@ export class CalculatedGrade extends Component {
       });
     }
     return(
-          <Modal show={visible} style={{ height: 200 }}>
-            <Modal.Header >
+          <Modal show={visible} style={{ height: 200 }} onHide={this.hideResults}>
+            <Modal.Header closeButton>
               <Modal.Title>
-                GPA
+                Calculated GPA
               </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              {this.props.calculatedGPA}
-              <Button onClick={this.hideResults} bsStyle="large"></Button>
+              <h4>{this.props.calculatedGPA}</h4>
             </Modal.Body>
           </Modal>
     );

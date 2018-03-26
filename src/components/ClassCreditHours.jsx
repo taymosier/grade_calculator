@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Col, ControlLabel, FormGroup, FormControl } from 'react-bootstrap';
 import { width } from '../helpers.js';
+import '.././index.css';
+
 
 
 export class ClassCreditHours extends Component {
@@ -22,6 +24,9 @@ export class ClassCreditHours extends Component {
   }
 
   handleGradePointChange(e){
+    if(e.target.value < 0 || e.target.value > 4){
+      return ' '
+    }
     this.setState({
       value: e.target.value
     });
@@ -40,6 +45,8 @@ export class ClassCreditHours extends Component {
           type="number"
           id="courseCreditHoursInput"
           bsSize="sm"
+          min="1"
+          max="4"
           value={this.state.value}
           onChange={this.handleGradePointChange}
         />

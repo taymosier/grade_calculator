@@ -34,13 +34,16 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   .classSummaryCol {
-    padding-left: 0;
+    padding: 0;
   }
 
   .classSummaryPanel{
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 11px;
     font-family: "Segoe UI", sans-serif;
+  }
+  .classSummaryPanel .panel-body{
+    padding: 7.5px 5px 7.5px 5px ;
   }
 
   .classGradeComponent{
@@ -50,6 +53,7 @@ input[type=number]::-webkit-outer-spin-button {
 
   .classForm{
     float: left;
+    overflow: hidden;
     height: 125px;
     padding: 2vh 0 0 0;
     background: #BF2115;
@@ -58,17 +62,25 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 2px 5px 10px #E34234;
   }
 
+  .classForm:last-of-type {
+    margin-bottom: 12.5px;
+  }
+
   .courseContainer{
     padding: 5px 0 0 0;
 
   }
 
   .form-group{
+    width: 100%;
     margin: 0;
     padding: 1px;
   }
+
   .has-feedback .form-control{
     padding-right: 2px;
+    font-size: 10px;
+    
   }
 
   .inputColumn {
@@ -80,7 +92,16 @@ input[type=number]::-webkit-outer-spin-button {
 
   .panel-default > .panel-heading {
     padding: 5px 0 2px 0;
-    background-color: #980E03;
+    background-color: #980E03 ;
+  }
+
+  .page-header{
+    font-family: "Segoe UI",  sans-serif;
+    margin: 20px 0 0 0;
+  }
+
+  .page-header h1{
+    font-size: 26px;
   }
 }
 

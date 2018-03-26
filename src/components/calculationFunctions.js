@@ -30,15 +30,15 @@ function calculateTermGPA(grades){
   let totalHours = 0;
   let pointSum = 0;
   for (let x in grades){
-    console.log(`Equivalent Grade Points: ${grades[x][0]}`);
-    console.log(`Class Hours: ${grades[x][1]}`);
-    console.log(`Total Points for class: ${grades[x][0]*grades[x][1]}`);
+    // console.log(`Equivalent Grade Points: ${grades[x][0]}`);
+    // console.log(`Class Hours: ${grades[x][1]}`);
+    // console.log(`Total Points for class: ${grades[x][0]*grades[x][1]}`);
     pointSum += (grades[x][0]*grades[x][1]);
     totalHours += parseInt(grades[x][1]);
     // console.log(letterGrades[x]);
   }
   console.log(pointSum);
-  console.log(`Total Hours: ${totalHours}`);
+  // console.log(`Total Hours: ${totalHours}`);
   semesterAverage = parseFloat(pointSum/totalHours).toFixed(2);
   console.log(semesterAverage);
   return semesterAverage;
