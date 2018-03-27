@@ -59,6 +59,7 @@ export class Class extends Component {
   }
 
   updateClassInput(e){
+    console.log(courses);
     let courseID = this.state.id-1;
     console.log(`course ID ${courseID}`);
     let value = e.target.value;
@@ -79,6 +80,7 @@ export class Class extends Component {
       });
       courses[(courseID)].classCreditHours = value;
     }
+    console.log(courses);
   }
 
   getCourseId(){
@@ -86,9 +88,9 @@ export class Class extends Component {
     let arrayFirstHalf = courses.slice(0,this.state.id);
     console.log(`arrayFirstHalf before popping: ${arrayFirstHalf}`);
     arrayFirstHalf.pop();
-    console.log();
-    for (let i in arrayFirstHalf){
-      console.log(`arrayFirstHalf[${i}] after popping: ${arrayFirstHalf[i].id}`);
+    console.log(`${arrayFirstHalf}`);
+    for (let i = 0; i < arrayFirstHalf.length; i++){
+      console.log(`arrayFirstHalf[${i}] after popping:` + arrayFirstHalf[i].id);
     }
   }
 

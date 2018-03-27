@@ -36,13 +36,6 @@ export let dummycourses = [
   },
 ]
 
-let course = {
-  id: '',
-  classNumber: '',
-  classGrade: '',
-  classCreditHours: '',
-};
-
 export class ClassList extends Component {
 
   constructor(props){
@@ -61,8 +54,14 @@ export class ClassList extends Component {
   }
 
   addCourse(){
-    course.id = parseInt(courses.length)+1;
-    courses.push(course);
+    let newCourse = {
+      id: '',
+      classNumber: '',
+      classGrade: '',
+      classCreditHours: '',
+    }
+    newCourse.id = parseInt(courses.length)+1;
+    courses.push(newCourse);
     this.setState({
       courses: courses,
     });
