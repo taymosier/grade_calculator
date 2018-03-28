@@ -1,0 +1,13 @@
+console.log('deleteing courses')
+let tempCourses = courses;
+let courseIndex = this.state.id-1;
+//this for statement should copy the information in the next array index into the currently selected courseIndex
+// array[1].id = array[2].id
+for(let i = courseIndex; i < courses.length-1; i++){
+  tempCourses[i+1].id = tempCourses[i+1].id-1;
+  tempCourses[i] = tempCourses[i+1];
+}
+tempCourses.pop();
+for (let i = 0; i < tempCourses.length; i++){
+  console.log(`id: ${tempCourses[i].id} - classGrade: ${tempCourses[i].classGrade}`);
+}

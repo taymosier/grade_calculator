@@ -9,7 +9,7 @@ export class ClassCreditHours extends Component {
   constructor(props){
     super(props);
     this.state={
-      value: ''
+      value: this.props.creditHours
     };
     this.handleGradePointChange = this.handleGradePointChange.bind(this);
     this.getValidationState = this.getValidationState.bind(this);
@@ -17,9 +17,13 @@ export class ClassCreditHours extends Component {
   }
 
   getValidationState(){
-    const length = this.state.value.length;
-    if (length > 0){
-      return ('success');
+    try {
+      const length = this.state.value.length;
+      if (length > 0){
+        return ('success');
+      }
+    } catch(e){
+      return null
     }
   }
 
@@ -32,6 +36,14 @@ export class ClassCreditHours extends Component {
     });
     this.props.updateClassInput(e);
 
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(this.props !== prevProps){
+      this.setState({
+        value: this.props.creditHours
+      });
+    }
   }
 
   render(){
@@ -47,7 +59,7 @@ export class ClassCreditHours extends Component {
           bsSize="sm"
           min="1"
           max="4"
-          value={this.state.value}
+          value={this.props.creditHours}
           onChange={this.handleGradePointChange}
         />
       <FormControl.Feedback />

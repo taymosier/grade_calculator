@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Col, Row} from 'react-bootstrap';
 import { Class } from './Class';
+import { courses } from './ClassList.jsx';
+import { getCourseDetails } from './Class.jsx';
+import { checkRows } from './classTableFunctions.js';
 import '.././index.css';
 
 export class ClassTable extends Component{
@@ -9,34 +12,34 @@ export class ClassTable extends Component{
     this.state = {
       courses: this.props.courses,
     }
-    this.updateTable = this.updateTable.bind(this);
+    this.checkRows = checkRows.bind(this);
   }
 
-  updateTable(course){
-    console.log(`courseId: ${course.id}`);
-    console.log(`courseNumber: ${course.classNumber}`);
-    console.log(`courseGrade: ${course.classGrade}`);
-    console.log(`courseGradePoint: ${course.classGradePoints}`);
-    let courseHolder = [this.state.courses.length];
-    courseHolder = this.state.courses;
-    courseHolder[parseInt(course.id)-1] = {
-      id: course.id,
-      classNumber: course.classNumber,
-      classGrade: course.classGrade,
-      classGradePoints: course.classGradePoints
+  componentDidUpdate(prevState,prevProps){
+    if (this.props.courses !== prevState.courses){
+      this.setState({
+        courses: this.props.courses
+      })
     }
-    this.setState({
-      courses: courseHolder
-    });
   }
 
   render(){
-    const courseRows = this.props.courses.map(course =>
+    let courseRows = this.state.courses.map(course =>
       (
-        <Col xs={12} xsOffset={0} className="classForm">
-          <Class id={course.id} updateClass={this.props.updateClass}/>
-        </Col>
+        <Class
+          updateCourses={this.props.updateCourses}
+          id={course.id}
+          number={course.classNumber}
+          grade={course.classGrade}
+          hours={course.classCreditHours}
+        />
       ));
+    console.log(this.state.courses);
+    console.log("Generating class components");
+    for (let i = 0; i < this.props.courses.length; i++){
+      console.log(`${i}: {id: ${this.props.courses[i].id}, classNumber: ${this.props.courses[i].classNumber}, classGrade: ${this.props.courses[i].classGrade}, classGradePoints: ${this.state.courses[i].classCreditHours}}`);
+      // console.log(this.props.courses[i].classGrade);
+    }
     return(
       <Row>
         {courseRows}

@@ -8,7 +8,7 @@ export class DeleteClassButton extends Component {
 
   render(){
     return(
-      <Button bsSize="xs" onClick={this.props.getCourseId}>
+      <Button bsSize="xs" onClick={this.props.deleteCourse}>
         <Glyphicon glyph="remove"/>
       </Button>
     );

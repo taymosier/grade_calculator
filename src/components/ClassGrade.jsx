@@ -9,7 +9,7 @@ export class ClassGrade extends Component {
   constructor(props){
     super(props);
     this.state={
-      value: ''
+      value: this.props.grade
     };
     this.handleGradeChange = this.handleGradeChange.bind(this);
     this.getValidationState = this.getValidationState.bind(this);
@@ -17,9 +17,14 @@ export class ClassGrade extends Component {
   }
 
   getValidationState(){
-    const length = this.state.value.length;
-    if (length > 0){
-      return ('success');
+    try {
+      const length = this.state.value.length;
+      if (length > 0){
+        return ('success');
+      }
+      return null
+    } catch(e){
+      return null
     }
   }
 
@@ -37,6 +42,14 @@ export class ClassGrade extends Component {
     this.props.updateClassInput(e);
   }
 
+  componentDidUpdate(prevProps, prevState){
+    if(this.props !== prevProps){
+      this.setState({
+        value: this.props.grade
+      });
+    }
+  }
+
   render(){
     let classGradeWithPlaceholder = <Col xs={10} xsOffset={0} className="classGradeComponent">
                                       <FormGroup
@@ -50,7 +63,7 @@ export class ClassGrade extends Component {
                                           min="0"
                                           max="100"
                                           bsSize="sm"
-                                          value={this.state.value}
+                                          value={this.props.grade}
                                           onChange={this.handleGradeChange}
                                         />
                                         <FormControl.Feedback />

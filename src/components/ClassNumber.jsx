@@ -6,7 +6,7 @@ export class ClassNumber extends Component {
   constructor(props){
     super(props);
     this.state={
-      value: ''
+      value: this.props.number
     };
     this.handleChange = this.handleChange.bind(this);
     this.getValidationState = this.getValidationState.bind(this);
@@ -14,11 +14,15 @@ export class ClassNumber extends Component {
   }
 
   getValidationState(){
-    const length = this.state.value.length;
-    if (length > 0){
-      return ('success');
+    try {
+      const length = this.state.value.length;
+      if (length > 0){
+        return ('success');
+      }
+      return null
+    } catch(e){
+      return null
     }
-    return null
   }
 
   handleChange(e){
@@ -26,6 +30,14 @@ export class ClassNumber extends Component {
       value: e.target.value
     });
     this.props.updateClassInput(e);
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(this.props !== prevProps){
+      this.setState({
+        value: this.props.number
+      });
+    }
   }
 
   render(){
@@ -39,7 +51,7 @@ export class ClassNumber extends Component {
                                             bsSize="sm"
                                             id="courseNumberInput"
                                             placeholder="Class Number"
-                                            value={this.state.value}
+                                            value={this.props.number}
                                             onChange={this.handleChange}
                                           />
                                         <FormControl.Feedback />
