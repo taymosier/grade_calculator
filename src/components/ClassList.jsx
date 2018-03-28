@@ -12,7 +12,7 @@ import { validateCourses } from './validationFunctions.js';
 import { addCourse, toggleHelp, hideResults, submitCourses, updateCourses} from './classListFunctions.js';
 import { width } from './../helpers.js';
 
-export let dummycourses = [
+export let courses = [
   { id: 1,
   classNumber: '',
   classGrade: '',
@@ -20,7 +20,7 @@ export let dummycourses = [
   },
 ]
 
-export let courses = [
+export let dummycourses = [
   { id: 1,
   classNumber: 'CSC3200',
   classGrade: 70,
