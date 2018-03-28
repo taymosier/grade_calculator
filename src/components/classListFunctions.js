@@ -37,7 +37,8 @@ export function hideResults(){
 
 export function submitCourses(){
   let submittedCourses = this.state;
-  console.log(validateCourses(submittedCourses));
+  console.log(submittedCourses);
+  console.log(calculateGrades(submittedCourses))
   if(validateCourses(submittedCourses) === true){
     this.setState({
       calculatedGPA: calculateGrades(submittedCourses),

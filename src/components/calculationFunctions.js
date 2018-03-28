@@ -1,6 +1,7 @@
 import { courseGradeEquivalents } from './courseGradeEquivalents.js';
 
 export function calculateGrades(courseList){
+  console.log('this is calculatedGrades being called')
   let equivalentGradePoints,gradeCreditHours, gradePercent, letterGradeRange;
   let letterGrades = [];
   for(let x in courseList.courses){
@@ -16,7 +17,8 @@ export function calculateGrades(courseList){
     letterGrades.push([equivalentGradePoints, gradeCreditHours]);
   }
   console.log(letterGrades);
-  return calculateTermGPA(letterGrades);
+  let termGPA = calculateTermGPA(letterGrades);
+  return termGPA;
 }
 
 export function convertGradeToPercent(grade){
@@ -38,8 +40,8 @@ function calculateTermGPA(grades){
     // console.log(letterGrades[x]);
   }
   console.log(pointSum);
-  // console.log(`Total Hours: ${totalHours}`);
+  console.log(`Total Hours: ${totalHours}`);
   semesterAverage = parseFloat(pointSum/totalHours).toFixed(2);
   console.log(semesterAverage);
-  return semesterAverage;
+  return parseFloat(semesterAverage).toFixed(2);
 }
