@@ -44,14 +44,14 @@ export class Class extends Component {
       <Col xs={12} sm={10} smOffset={1} xsOffset={0} className="classForm">
 
         <Row>
-          <Col className="inputColumn" md={6} sm={6} xs={5} smOffset={1} xsOffset={1}>
+          <Col className="inputColumn" md={5} sm={6} xs={5} smOffset={1} xsOffset={1}>
             <Form className="inputForm" xs={6}>
               <ClassNumber number={this.state.classNumber} updateClassInput={this.updateClassInput}/>
               <ClassGrade grade={this.state.classGrade} updateClassInput={this.updateClassInput} />{' '}
               <ClassCreditHours creditHours={this.state.classCreditHours} updateClassInput={this.updateClassInput}/>{' '}
             </Form>
           </Col>
-          <Col lg={3} md={2} sm={2} smOffset={1} xs={3} className="classSummaryCol col-no-padding">
+          <Col lg={3} md={3} sm={2} smOffset={1} xs={3} className="classSummaryCol col-no-padding">
             {/* {width <= 767
               ?  <Panel className="small-screen classSummaryPanel">
                   <Panel.Heading>
