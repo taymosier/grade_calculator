@@ -47,7 +47,7 @@ export class ClassCreditHours extends Component {
   }
 
   render(){
-    let classCreditHoursWithPlaceholder = <Col xs={10} xsOffset={0} className="classCreditHoursComponent">
+    let classCreditHoursWithPlaceholder = <Col xs={10} sm={8} xsOffset={0} className="classCreditHoursComponent">
       <FormGroup
         controlId="classGradePointInput"
         validationState={this.getValidationState()}
@@ -65,7 +65,7 @@ export class ClassCreditHours extends Component {
       <FormControl.Feedback />
       </FormGroup>
     </Col>
-    let classCreditHours = <Col lg={2}  className="classCreditHoursComponent">
+    let classCreditHours = <Col lg={2} md={6} sm={6} xs={6} className="classCreditHoursComponent">
       <FormGroup
         controlId="classGradePointInput"
         validationState={this.getValidationState()}

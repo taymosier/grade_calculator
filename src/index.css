@@ -47,7 +47,6 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   .classGradeComponent{
-    float: left;
     padding: 0;
   }
 
@@ -80,15 +79,14 @@ input[type=number]::-webkit-outer-spin-button {
   .has-feedback .form-control{
     padding-right: 2px;
     font-size: 10px;
-    
+
   }
 
   .inputColumn {
     padding-right: 3px;
   }
 
-  .panel {
-  }
+
 
   .panel-default > .panel-heading {
     padding: 5px 0 2px 0;
@@ -106,13 +104,80 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media only screen and (min-width: 576px) and (max-width: 767px){
+  .col-no-padding{
+    padding: 0;
+  }
+
+  .classCreditHoursComponent{
+    float: left;
+    padding: 0;
+  }
+
+  .classForm{
+    float: left;
+    overflow: hidden;
+    height: 150px;
+    padding: 2vh 0 0 0;
+    background: #BF2115;
+    margin-top: 10px;
+    border: 1.5px solid #F8665B;
+    box-shadow: 2px 5px 10px #E34234;
+  }
+
+  .classForm:last-of-type {
+    margin-bottom: 12.5px;
+  }
+
+  .classGradeComponent{
+    float: left;
+    padding: 0;
+  }
+
+  .classGrade
+
+  .classGradeComponent .form-group{
+    width: 75%;
+  }
+
+
+.classNumberInput > .classInput > .form-group {
+  width: 75%;
+}
+
+  .classNumberComponent {
+      padding: 0;
+      float: left;
+    }
+
   .classSummaryCol{
     padding: 0;
   }
 
   .classSummaryPanel{
-    margin-top: 0;
-    font-size: 8px;
+    margin-top: 5px;
+    font-size: 11px;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  .classSummaryPanel .panel-body{
+    height: 30px;
+    padding: 7.5px 5px 7.5px 5px ;
+  }
+
+
+  .courseContainer{
+    padding: 5px 0 0 0;
+  }
+
+  .form-group{
+    width: 100%;
+    margin: 0;
+    padding: 1px;
+  }
+
+  .has-feedback .form-control{
+    padding-right: 2px;
+    font-size: 10px;
   }
 
   .inputColumn {
@@ -124,25 +189,138 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 5px;
   }
 
-  .col-no-padding{
-    padding: 0;
+  .page-header{
+    font-family: "Segoe UI",  sans-serif;
+    margin: 20px 0 0 0;
+  }
+
+  .page-header h1{
+    font-size: 26px;
+  }
+
+  .panel {
+    margin: 10px 0 0 10px;
+  }
+
+  .panel-default > .panel-heading {
+    padding: 5px 0 2px 0;
+    background-color: #980E03 ;
   }
 }
 
 @media only screen and (min-width: 768px) and (max-width: 991px){
+
+  .col-no-padding{
+    padding: 0;
+  }
+
+  .classCreditHoursComponent{
+    float: left;
+    padding: 0;
+  }
+
+  .classForm{
+    float: left;
+    overflow: hidden;
+    height: 150px;
+    padding: 2vh 0 0 0;
+    background: #BF2115;
+    margin-top: 10px;
+    border: 1.5px solid #F8665B;
+    box-shadow: 2px 5px 10px #E34234;
+  }
+
+  .classForm:last-of-type {
+    margin-bottom: 12.5px;
+  }
+
+  .classGradeComponent{
+    float: left;
+    padding: 0;
+  }
+
+  .classGradeComponent .form-group{
+    width: 75%;
+  }
+
+
+  .classNumberInput > .classInput > .form-group {
+    width: 75%;
+  }
+
+  .classNumberComponent {
+      padding: 0;
+      float: left;
+    }
+
   .classSummaryCol{
     padding: 0;
   }
 
   .classSummaryPanel{
     margin-top: 0;
-    font-size: 8px !important;
+    font-size: 11px;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  .classSummaryPanel .panel-body{
+    height: 30px;
+    padding: 7.5px 5px 5px 5px ;
+  }
+
+  .closeButtonCol {
+    padding-left: 0;
+  }
+
+
+  .courseContainer{
+    padding: 5px 0 0 0;
+  }
+
+  .form-group{
+    width: 100%;
+    margin: 0;
+    padding: 1px;
+  }
+
+  .has-success .control-label{
+    color: white;
+  }
+
+  .has-feedback .form-control{
+    padding-right: 2px;
+    font-size: 10px;
+  }
+
+  .inputColumn {
+    overflow: hidden;
+    padding-right: 0 !important;
   }
 
   .inputForm .form-group{
-    margin-bottom: 5px;
+      margin-bottom: 5px;
+      width: 100%;
+  }
+
+  .page-header{
+    font-family: "Segoe UI",  sans-serif;
+    margin: 20px 0 0 0;
+  }
+
+  .page-header h1{
+    font-size: 26px;
+  }
+
+  .panel {
+    margin: 0px 0 0 10px;
+  }
+
+  .panel-default > .panel-heading {
+    padding: 5px 0 2px 0;
+    background-color: #980E03 ;
   }
 }
+
 
 @media only screen and (min-width: 992px) and (max-width: 1199px){
   .classSummaryPanel{

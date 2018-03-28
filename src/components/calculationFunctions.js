@@ -22,6 +22,7 @@ export function calculateGrades(courseList){
 }
 
 export function convertGradeToPercent(grade){
+  // eslint-disable-next-line
   grade = parseInt(grade)/100;
   return grade;
 }
@@ -35,7 +36,9 @@ function calculateTermGPA(grades){
     // console.log(`Equivalent Grade Points: ${grades[x][0]}`);
     // console.log(`Class Hours: ${grades[x][1]}`);
     // console.log(`Total Points for class: ${grades[x][0]*grades[x][1]}`);
+    // eslint-disable-next-line
     pointSum += (grades[x][0]*grades[x][1]);
+    // eslint-disable-next-line 
     totalHours += parseInt(grades[x][1]);
     // console.log(letterGrades[x]);
   }

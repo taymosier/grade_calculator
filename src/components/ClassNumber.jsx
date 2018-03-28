@@ -41,7 +41,7 @@ export class ClassNumber extends Component {
   }
 
   render(){
-    let classNumberWithPlaceholder = <Col xs={10} xsOffset={0} className="classNumberComponent">
+    let classNumberWithPlaceholder = <Col xs={10}  bsSize="sm" xsOffset={0} className="classNumberComponent">
                                       <FormGroup
                                           className="classInput"
                                           validationState={this.getValidationState()}
@@ -57,7 +57,7 @@ export class ClassNumber extends Component {
                                         <FormControl.Feedback />
                                       </FormGroup>
                                      </Col>;
-    let classNumber = <Col lg={3} lgOffset={1} className="classNumberComponent">
+    let classNumber = <Col lg={1} md={12} xs={12} sm={12} lgOffset={1} className="classNumberComponent">
                         <FormGroup
                             className="classInput"
                             validationState={this.getValidationState()}

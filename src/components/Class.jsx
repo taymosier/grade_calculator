@@ -3,12 +3,9 @@ import { Col, Form, Panel, Row } from 'react-bootstrap';
 import { ClassNumber } from './ClassNumber.jsx';
 import { ClassGrade } from './ClassGrade.jsx';
 import { ClassCreditHours } from './ClassCreditHours.jsx';
-import { courses } from './ClassList.jsx';
-import {convertGradeToPercent } from './calculationFunctions.js';
-import { courseGradeEquivalents } from './courseGradeEquivalents.js';
 import { DeleteClassButton } from './DeleteClassButton.jsx';
 import { width } from './../helpers.js';
-import { updateClassInput, deleteCourse, getLetterGradeByNumberGrade, getGradePoints, getValidationState } from './classFunctions.js';
+import { updateClassInput, deleteCourse, getLetterGradeByNumberGrade, getGradePoints } from './classFunctions.js';
 import '.././index.css';
 
 
@@ -44,19 +41,19 @@ export class Class extends Component {
       return null
     }
     return(
-      <Col xs={12} xsOffset={0} className="classForm">
+      <Col xs={12} sm={10} smOffset={1} xsOffset={0} className="classForm">
 
         <Row>
-          <Col className="inputColumn" md={6} sm={6} xs={5} xsOffset={1}>
+          <Col className="inputColumn" md={6} sm={6} xs={5} smOffset={1} xsOffset={1}>
             <Form className="inputForm" xs={6}>
               <ClassNumber number={this.state.classNumber} updateClassInput={this.updateClassInput}/>
               <ClassGrade grade={this.state.classGrade} updateClassInput={this.updateClassInput} />{' '}
               <ClassCreditHours creditHours={this.state.classCreditHours} updateClassInput={this.updateClassInput}/>{' '}
             </Form>
           </Col>
-          <Col lg={3} md={2} sm={2} xs={3} className="classSummaryCol col-no-padding">
-            {width <= 767
-              ?  <Panel className="classSummaryPanel">
+          <Col lg={3} md={2} sm={2} smOffset={1} xs={3} className="classSummaryCol col-no-padding">
+            {/* {width <= 767
+              ?  <Panel className="small-screen classSummaryPanel">
                   <Panel.Heading>
                     {`Letter Grade/Credit Points: `}
                   </Panel.Heading>
@@ -66,7 +63,7 @@ export class Class extends Component {
                   </Panel.Body>
                 </Panel>
 
-              : <Panel className="classSummaryPanel ">
+              : <Panel className="large-screen classSummaryPanel ">
                 <Panel.Heading>
                   {`Letter Grade: `}
                 </Panel.Heading>
@@ -80,9 +77,23 @@ export class Class extends Component {
                   {`${creditPoints}`}
                 </Panel.Body>
               </Panel>
-            }
+            } */}
+            <Panel className="large-screen classSummaryPanel ">
+              <Panel.Heading>
+                {`Letter Grade: `}
+              </Panel.Heading>
+              <Panel.Body>
+                {`${letter}`}
+              </Panel.Body>
+              <Panel.Heading>
+                {`Total Credits Points: `}
+              </Panel.Heading>
+              <Panel.Body>
+                {`${creditPoints}`}
+              </Panel.Body>
+            </Panel>
           </Col>
-          <Col xs={1}>
+          <Col xs={1} sm={1} smOffset={1} className="closeButtonCol">
             <DeleteClassButton deleteCourse={this.deleteCourse}/>
           </Col>
         </Row>

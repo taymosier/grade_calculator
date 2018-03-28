@@ -5,14 +5,10 @@ import { HelpButton } from '../HelpButton.jsx';
 import { HelpModal } from '../HelpModal.jsx';
 import { SubmitCoursesButton } from '../SubmitCoursesButton.jsx';
 import { ClassTable } from './ClassTable.jsx';
-import { getCourseDetails } from './Class.jsx';
 import { CalculatedGrade } from './CalculatedGrade.jsx';
-import { calculateGrades } from './calculationFunctions.js';
-import { validateCourses } from './validationFunctions.js';
-import { addCourse, toggleHelp, hideResults, submitCourses, updateCourses} from './classListFunctions.js';
-import { width } from './../helpers.js';
+import { addCourse, toggleHelp, hideResults, submitCourses} from './classListFunctions.js';
 
-export let dummycourses  = [
+export let courses  = [
   { id: 1,
   classNumber: '',
   classGrade: '',
@@ -20,7 +16,7 @@ export let dummycourses  = [
   },
 ]
 
-export let courses = [
+export let dummycourses = [
   { id: 1,
   classNumber: 'CSC3200',
   classGrade: 70,
@@ -81,7 +77,6 @@ export class ClassList extends Component {
   }
 
   render(){
-    let showHelp = this.state.showHelp;
     return(
       <Col className="courseContainer" lg={10} xs={10} xsOffset={1} lgOffset={1}>
         <ClassTable

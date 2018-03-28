@@ -51,7 +51,7 @@ export class ClassGrade extends Component {
   }
 
   render(){
-    let classGradeWithPlaceholder = <Col xs={10} xsOffset={0} className="classGradeComponent">
+    let classGradeWithPlaceholder = <Col xs={10} sm={8} xsOffset={0} className="classGradeComponent">
                                       <FormGroup
                                         controlId="classGradeInput"
                                         validationState={this.getValidationState()}
@@ -69,7 +69,7 @@ export class ClassGrade extends Component {
                                         <FormControl.Feedback />
                                       </FormGroup>
                                     </Col>;
-    let classNumber = <Col lg={2} className="classGradeComponent">
+    let classGrade = <Col lg={2} md={6} sm={6} xs={6} className="classGradeComponent">
                         <FormGroup
                           controlId="classGradeInput"
                           validationState={this.getValidationState()}
@@ -78,6 +78,7 @@ export class ClassGrade extends Component {
                           <FormControl
                             type="number"
                             bsSize="sm"
+                            sm={12}
                             min="0"
                             max="100"
                             value={this.state.value}
@@ -91,7 +92,7 @@ export class ClassGrade extends Component {
     if(width<575){
       return(classGradeWithPlaceholder);
     } else {
-      return(classNumber);
+      return(classGrade);
     }
   }
 }

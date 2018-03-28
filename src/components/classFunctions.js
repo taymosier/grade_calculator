@@ -43,7 +43,6 @@ export function getValidationState(){
 
 export function getGradePoints(grade, hours){
   let gradePercent, points, range;
-  let letterGrades = courseGradeEquivalents
   gradePercent = convertGradeToPercent(grade);
   for(let i in courseGradeEquivalents){
     range = courseGradeEquivalents[i].percentageRange;

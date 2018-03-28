@@ -9,6 +9,7 @@ export function addCourse(){
     classGrade: '',
     classCreditHours: '',
   }
+  // eslint-disable-next-line 
   newCourse.id = parseInt(courses.length)+1;
   courses.push(newCourse);
   this.setState({

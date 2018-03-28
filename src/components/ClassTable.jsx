@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Col, Row} from 'react-bootstrap';
+import { Row} from 'react-bootstrap';
 import { Class } from './Class';
-import { courses } from './ClassList.jsx';
-import { getCourseDetails } from './Class.jsx';
 import { checkRows } from './classTableFunctions.js';
 import '.././index.css';
 

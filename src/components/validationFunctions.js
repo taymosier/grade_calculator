@@ -41,7 +41,7 @@ export function ValidateCourseCreditHours(courseCreditHours){
     return false;
   }
   // console.log('ValidateCourseNumber called');
-  var specialCharacters = /\^+|\$+|\.+|\?+|\=+|\!+|\:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
+  var specialCharacters = /\^+|\$+|\.+|\?+|=+|!+|:+|\|+|\\+|\/+|\(+|\)+|\[+|\]+|\{+|\}/g;
   // // console.log(courseCreditHours.toString().match(specialCharacters));
   let invalidCharacters = courseCreditHours.toString().match(specialCharacters);
   if(courseCreditHours.length === 0){
