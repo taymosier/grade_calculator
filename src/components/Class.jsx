@@ -41,10 +41,10 @@ export class Class extends Component {
       return null
     }
     return(
-      <Col xs={12} sm={10} smOffset={1} xsOffset={0} className="classForm">
+      <Col xs={12} xsOffset={0} sm={10} smOffset={1} lg={8} lgOffset={2} className="classForm">
 
         <Row>
-          <Col className="inputColumn" md={5} sm={6} xs={5} smOffset={1} xsOffset={1}>
+          <Col className="inputColumn" lg={4} md={5} sm={6} xs={5} smOffset={1} xsOffset={1}>
             <Form className="inputForm" xs={6}>
               <ClassNumber number={this.state.classNumber} updateClassInput={this.updateClassInput}/>
               <ClassGrade grade={this.state.classGrade} updateClassInput={this.updateClassInput} />{' '}
@@ -52,7 +52,7 @@ export class Class extends Component {
             </Form>
           </Col>
           <Col lg={3} md={3} sm={2} smOffset={1} xs={3} className="classSummaryCol col-no-padding">
-            {/* {width <= 767
+            {width <= 767
               ?  <Panel className="small-screen classSummaryPanel">
                   <Panel.Heading>
                     {`Letter Grade/Credit Points: `}
@@ -77,23 +77,9 @@ export class Class extends Component {
                   {`${creditPoints}`}
                 </Panel.Body>
               </Panel>
-            } */}
-            <Panel className="large-screen classSummaryPanel ">
-              <Panel.Heading>
-                {`Letter Grade: `}
-              </Panel.Heading>
-              <Panel.Body>
-                {`${letter}`}
-              </Panel.Body>
-              <Panel.Heading>
-                {`Total Credits Points: `}
-              </Panel.Heading>
-              <Panel.Body>
-                {`${creditPoints}`}
-              </Panel.Body>
-            </Panel>
+            }
           </Col>
-          <Col xs={1} sm={1} smOffset={1} className="closeButtonCol">
+          <Col xs={1} sm={1} smOffset={1} lg={1} lgOffset={2} className="closeButtonCol">
             <DeleteClassButton deleteCourse={this.deleteCourse}/>
           </Col>
         </Row>

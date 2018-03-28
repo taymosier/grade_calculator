@@ -65,7 +65,7 @@ export class ClassCreditHours extends Component {
       <FormControl.Feedback />
       </FormGroup>
     </Col>
-    let classCreditHours = <Col lg={2} md={6} sm={6} xs={6} className="classCreditHoursComponent">
+    let classCreditHours = <Col lg={5} md={6} sm={6} xs={6} lgOffset={1} className="classCreditHoursComponent">
       <FormGroup
         controlId="classGradePointInput"
         validationState={this.getValidationState()}

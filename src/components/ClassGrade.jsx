@@ -69,7 +69,7 @@ export class ClassGrade extends Component {
                                         <FormControl.Feedback />
                                       </FormGroup>
                                     </Col>;
-    let classGrade = <Col lg={2} md={6} sm={6} xs={6} className="classGradeComponent">
+    let classGrade = <Col lg={4} md={6} sm={6} xs={6} lgOffset={1} className="classGradeComponent">
                         <FormGroup
                           controlId="classGradeInput"
                           validationState={this.getValidationState()}

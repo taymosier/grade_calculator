@@ -452,29 +452,115 @@ input[type=number]::-webkit-outer-spin-button {
     height: 45px;
   }
 
-  .classGradeComponent{
 
-  }
+      .col-no-padding{
+        padding: 0;
+      }
 
-  .classNumberComponent{
+      .classCreditHoursComponent{
+        float: left;
+        padding: 0;
+      }
 
-  }
+      .classForm{
+        float: left;
+        overflow: hidden;
+        height: 180px;
+        padding: 4vh 0 0 0;
+        background: #BF2115;
+        margin-top: 10px;
+        border: 1.5px solid #F8665B;
+        box-shadow: 2px 5px 10px #E34234;
+      }
 
-  .classGradePointsComponent{
-    margin-left: 5px;
-  }
+      .classForm:last-of-type {
+        margin-bottom: 12.5px;
+      }
 
-  .classRow{
+      .classGradeComponent{
+        float: left;
+        padding: 0;
+      }
 
-  }
+      .classGradeComponent .form-group{
+        font-family: "Segoe UI", sans-serif;
+        width: 75%;
+      }
 
-  .classNumberComponent .form-control {
-    max-width: 120px;
-    padding: 0 0 0 15px;
-  }
+      .classNumberComponent {
+          padding: 0;
+          float: left;
+        }
 
-  .form-control{
-    padding: 0 0 0 5px;
-    max-width: 70px;
-  }
+      .classSummaryCol{
+        padding: 0;
+      }
+
+      .classSummaryPanel{
+        margin-top: 0;
+        font-size: 14px;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      .classSummaryPanel .panel-body{
+        height: 35px;
+        padding: 7.5px 5px 2.5px 5px ;
+      }
+
+      .closeButtonCol {
+        margin-top: -15px;
+        padding-left: 0;
+      }
+
+      .control-label{
+        font-family: "Segoe UI", sans-serif;
+      }
+
+
+      .courseContainer{
+        padding: 5px 0 0 0;
+      }
+
+      .form-group{
+        width: 100%;
+        margin: 0;
+        padding: 1px;
+      }
+
+      .has-success .control-label{
+        color: white;
+      }
+
+      .has-feedback .form-control{
+        padding-right: 2px;
+        font-size: 10px;
+      }
+
+      .inputColumn {
+        overflow: hidden;
+        padding-right: 0 !important;
+      }
+
+      .inputForm .form-group{
+          margin-bottom: 5px;
+          width: 100%;
+      }
+
+      .page-header{
+        font-family: "Segoe UI",  sans-serif;
+        margin: 20px 0 0 0;
+      }
+
+      .page-header h1{
+        font-size: 26px;
+      }
+
+      .panel {
+        margin: 0px 0 0 10px;
+      }
+
+      .panel-default > .panel-heading {
+        padding: 5px 0 2px 0;
+        background-color: #980E03 ;
+      }
 }

@@ -19,19 +19,28 @@ export class CalculatedGrade extends Component {
     this.props.hideResults();
   }
 
-
-  render(){
-    let visible = this.state.show;
+  componentDidUpdate(prevProps, prevState){
     if (this.state.show !== this.props.show){
       this.setState({
         show: true,
       });
     }
-    if(this.state.GPA !== this.props.calculatedGPA){
-      this.setState({
-        GPA: this.props.calculatedGPA
-      });
+    try {
+      if(this.state.GPA !== this.props.calculatedGPA){
+        this.setState({
+          GPA: this.props.calculatedGPA
+        });
+      }
+    } catch(e){
+      return null
     }
+
+  }
+
+
+  render(){
+    let visible = this.state.show;
+
     return(
           <Modal show={visible} style={{ height: 200 }} onHide={this.hideResults}>
             <Modal.Header closeButton>

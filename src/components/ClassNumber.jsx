@@ -57,7 +57,7 @@ export class ClassNumber extends Component {
                                         <FormControl.Feedback />
                                       </FormGroup>
                                      </Col>;
-    let classNumber = <Col lg={1} md={12} xs={12} sm={12} lgOffset={1} className="classNumberComponent">
+    let classNumber = <Col lg={10} md={12} xs={12} sm={12} lgOffset={1} className="classNumberComponent">
                         <FormGroup
                             className="classInput"
                             validationState={this.getValidationState()}
